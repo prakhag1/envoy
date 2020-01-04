@@ -124,7 +124,8 @@ To configure retries to attempt other priorities during retries, the built-in
   retry_policy:
     retry_priority:
       name: envoy.retry_priorities.previous_priorities
-      config:
+      typed_config:
+        "@type": type.googleapis.com/envoy.config.retry.previous_priorities.PreviousPrioritiesConfig
         update_frequency: 2
 
 This will target priorities in subsequent retry attempts that haven't been already used. The ``update_frequency`` parameter decides how
@@ -141,7 +142,8 @@ previously attempted priorities.
     host_selection_retry_max_attempts: 3
     retry_priority:
       name: envoy.retry_priorities.previous_priorities
-      config:
+      typed_config:
+        "@type": type.googleapis.com/envoy.config.retry.previous_priorities.PreviousPrioritiesConfig
         update_frequency: 2
 
 .. _arch_overview_internal_redirects:
